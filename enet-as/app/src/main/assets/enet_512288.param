@@ -1,0 +1,240 @@
+7767517
+238 266
+Input            data             0 1 data 0=512 1=288 2=3
+Split            splitncnn_0      1 2 data data_splitncnn_0 data_splitncnn_1
+Convolution      conv0_1          1 1 data_splitncnn_1 conv0_1 0=13 1=3 2=1 3=2 4=1 5=1 6=351
+Pooling          pool0_1          1 1 data_splitncnn_0 pool0_1 0=0 1=2 2=2 3=0 4=0
+Concat           concat0_1        2 1 conv0_1 pool0_1 concat0_1 0=0
+BatchNorm        bn0_1            1 1 concat0_1 bn0_1 0=16
+ReLU             prelu0_1         1 1 bn0_1 prelu0_1
+Split            splitncnn_1      1 2 prelu0_1 prelu0_1_splitncnn_0 prelu0_1_splitncnn_1
+Convolution      conv1_0_0        1 1 prelu0_1_splitncnn_1 conv1_0_0 0=16 1=2 2=1 3=2 4=0 5=1 6=1024
+ReLU             prelu1_0_0       1 1 conv1_0_0 prelu1_0_0
+Convolution      conv1_0_1        1 1 prelu1_0_0 conv1_0_1 0=16 1=3 2=1 3=1 4=1 5=1 6=2304
+ReLU             prelu1_0_1       1 1 conv1_0_1 prelu1_0_1
+Convolution      conv1_0_2        1 1 prelu1_0_1 conv1_0_2 0=32 1=1 2=1 3=1 4=0 5=1 6=512
+Pooling          pool1_0_4        1 1 prelu0_1_splitncnn_0 pool1_0_4 0=0 1=2 2=2 3=0 4=0
+Convolution      conv1_0_4        1 1 pool1_0_4 conv1_0_4 0=32 1=1 2=1 3=1 4=0 5=1 6=512
+Eltwise          eltwise1_0_4     2 1 conv1_0_4 conv1_0_2 eltwise1_0_4 0=1 -23301=0
+ReLU             prelu1_0_4       1 1 eltwise1_0_4 prelu1_0_4
+Split            splitncnn_2      1 2 prelu1_0_4 prelu1_0_4_splitncnn_0 prelu1_0_4_splitncnn_1
+Convolution      conv1_1_0        1 1 prelu1_0_4_splitncnn_1 conv1_1_0 0=16 1=1 2=1 3=1 4=0 5=1 6=512
+ReLU             prelu1_1_0       1 1 conv1_1_0 prelu1_1_0
+Convolution      conv1_1_1        1 1 prelu1_1_0 conv1_1_1 0=16 1=3 2=1 3=1 4=1 5=1 6=2304
+ReLU             prelu1_1_1       1 1 conv1_1_1 prelu1_1_1
+Convolution      conv1_1_2        1 1 prelu1_1_1 conv1_1_2 0=32 1=1 2=1 3=1 4=0 5=1 6=512
+Eltwise          eltwise1_1_4     2 1 prelu1_0_4_splitncnn_0 conv1_1_2 eltwise1_1_4 0=1 -23301=0
+ReLU             prelu1_1_4       1 1 eltwise1_1_4 prelu1_1_4
+Split            splitncnn_3      1 2 prelu1_1_4 prelu1_1_4_splitncnn_0 prelu1_1_4_splitncnn_1
+Convolution      conv1_2_0        1 1 prelu1_1_4_splitncnn_1 conv1_2_0 0=16 1=1 2=1 3=1 4=0 5=1 6=512
+ReLU             prelu1_2_0       1 1 conv1_2_0 prelu1_2_0
+Convolution      conv1_2_1        1 1 prelu1_2_0 conv1_2_1 0=16 1=3 2=1 3=1 4=1 5=1 6=2304
+ReLU             prelu1_2_1       1 1 conv1_2_1 prelu1_2_1
+Convolution      conv1_2_2        1 1 prelu1_2_1 conv1_2_2 0=32 1=1 2=1 3=1 4=0 5=1 6=512
+Eltwise          eltwise1_2_4     2 1 prelu1_1_4_splitncnn_0 conv1_2_2 eltwise1_2_4 0=1 -23301=0
+ReLU             prelu1_2_4       1 1 eltwise1_2_4 prelu1_2_4
+Split            splitncnn_4      1 2 prelu1_2_4 prelu1_2_4_splitncnn_0 prelu1_2_4_splitncnn_1
+Convolution      conv1_3_0        1 1 prelu1_2_4_splitncnn_1 conv1_3_0 0=16 1=1 2=1 3=1 4=0 5=1 6=512
+ReLU             prelu1_3_0       1 1 conv1_3_0 prelu1_3_0
+Convolution      conv1_3_1        1 1 prelu1_3_0 conv1_3_1 0=16 1=3 2=1 3=1 4=1 5=1 6=2304
+ReLU             prelu1_3_1       1 1 conv1_3_1 prelu1_3_1
+Convolution      conv1_3_2        1 1 prelu1_3_1 conv1_3_2 0=32 1=1 2=1 3=1 4=0 5=1 6=512
+Eltwise          eltwise1_3_4     2 1 prelu1_2_4_splitncnn_0 conv1_3_2 eltwise1_3_4 0=1 -23301=0
+ReLU             prelu1_3_4       1 1 eltwise1_3_4 prelu1_3_4
+Split            splitncnn_5      1 2 prelu1_3_4 prelu1_3_4_splitncnn_0 prelu1_3_4_splitncnn_1
+Convolution      conv1_4_0        1 1 prelu1_3_4_splitncnn_1 conv1_4_0 0=16 1=1 2=1 3=1 4=0 5=1 6=512
+ReLU             prelu1_4_0       1 1 conv1_4_0 prelu1_4_0
+Convolution      conv1_4_1        1 1 prelu1_4_0 conv1_4_1 0=16 1=3 2=1 3=1 4=1 5=1 6=2304
+ReLU             prelu1_4_1       1 1 conv1_4_1 prelu1_4_1
+Convolution      conv1_4_2        1 1 prelu1_4_1 conv1_4_2 0=32 1=1 2=1 3=1 4=0 5=1 6=512
+Eltwise          eltwise1_4_4     2 1 prelu1_3_4_splitncnn_0 conv1_4_2 eltwise1_4_4 0=1 -23301=0
+ReLU             prelu1_4_4       1 1 eltwise1_4_4 prelu1_4_4
+Split            splitncnn_6      1 2 prelu1_4_4 prelu1_4_4_splitncnn_0 prelu1_4_4_splitncnn_1
+Convolution      conv2_0_0        1 1 prelu1_4_4_splitncnn_1 conv2_0_0 0=32 1=2 2=1 3=2 4=0 5=1 6=4096
+ReLU             prelu2_0_0       1 1 conv2_0_0 prelu2_0_0
+Convolution      conv2_0_1        1 1 prelu2_0_0 conv2_0_1 0=32 1=3 2=1 3=1 4=1 5=1 6=9216
+ReLU             prelu2_0_1       1 1 conv2_0_1 prelu2_0_1
+Convolution      conv2_0_2        1 1 prelu2_0_1 conv2_0_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Pooling          pool2_0_4        1 1 prelu1_4_4_splitncnn_0 pool2_0_4 0=0 1=2 2=2 3=0 4=0
+Convolution      conv2_0_4        1 1 pool2_0_4 conv2_0_4 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_0_4     2 1 conv2_0_4 conv2_0_2 eltwise2_0_4 0=1 -23301=0
+ReLU             prelu2_0_4       1 1 eltwise2_0_4 prelu2_0_4
+Split            splitncnn_7      1 2 prelu2_0_4 prelu2_0_4_splitncnn_0 prelu2_0_4_splitncnn_1
+Convolution      conv2_1_0        1 1 prelu2_0_4_splitncnn_1 conv2_1_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu2_1_0       1 1 conv2_1_0 prelu2_1_0
+Convolution      conv2_1_1        1 1 prelu2_1_0 conv2_1_1 0=32 1=3 2=1 3=1 4=1 5=1 6=9216
+ReLU             prelu2_1_1       1 1 conv2_1_1 prelu2_1_1
+Convolution      conv2_1_2        1 1 prelu2_1_1 conv2_1_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_1_4     2 1 prelu2_0_4_splitncnn_0 conv2_1_2 eltwise2_1_4 0=1 -23301=0
+ReLU             prelu2_1_4       1 1 eltwise2_1_4 prelu2_1_4
+Split            splitncnn_8      1 2 prelu2_1_4 prelu2_1_4_splitncnn_0 prelu2_1_4_splitncnn_1
+Convolution      conv2_2_0        1 1 prelu2_1_4_splitncnn_1 conv2_2_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu2_2_0       1 1 conv2_2_0 prelu2_2_0
+Convolution      conv2_2_1        1 1 prelu2_2_0 conv2_2_1 0=32 1=3 2=2 3=1 4=2 5=1 6=9216
+ReLU             prelu2_2_1       1 1 conv2_2_1 prelu2_2_1
+Convolution      conv2_2_2        1 1 prelu2_2_1 conv2_2_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_2_4     2 1 prelu2_1_4_splitncnn_0 conv2_2_2 eltwise2_2_4 0=1 -23301=0
+ReLU             prelu2_2_4       1 1 eltwise2_2_4 prelu2_2_4
+Split            splitncnn_9      1 2 prelu2_2_4 prelu2_2_4_splitncnn_0 prelu2_2_4_splitncnn_1
+Convolution      conv2_3_0        1 1 prelu2_2_4_splitncnn_1 conv2_3_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu2_3_0       1 1 conv2_3_0 prelu2_3_0
+Convolution      conv2_3_1_a      1 1 prelu2_3_0 conv2_3_1_a 0=32 1=1 11=5 2=1 3=1 4=1 5=1 6=5120
+Convolution      conv2_3_1        1 1 conv2_3_1_a conv2_3_1 0=32 1=5 11=1 2=1 3=1 4=1 5=1 6=5120
+ReLU             prelu2_3_1       1 1 conv2_3_1 prelu2_3_1
+Convolution      conv2_3_2        1 1 prelu2_3_1 conv2_3_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_3_4     2 1 prelu2_2_4_splitncnn_0 conv2_3_2 eltwise2_3_4 0=1 -23301=0
+ReLU             prelu2_3_4       1 1 eltwise2_3_4 prelu2_3_4
+Split            splitncnn_10     1 2 prelu2_3_4 prelu2_3_4_splitncnn_0 prelu2_3_4_splitncnn_1
+Convolution      conv2_4_0        1 1 prelu2_3_4_splitncnn_1 conv2_4_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu2_4_0       1 1 conv2_4_0 prelu2_4_0
+Convolution      conv2_4_1        1 1 prelu2_4_0 conv2_4_1 0=32 1=3 2=4 3=1 4=4 5=1 6=9216
+ReLU             prelu2_4_1       1 1 conv2_4_1 prelu2_4_1
+Convolution      conv2_4_2        1 1 prelu2_4_1 conv2_4_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_4_4     2 1 prelu2_3_4_splitncnn_0 conv2_4_2 eltwise2_4_4 0=1 -23301=0
+ReLU             prelu2_4_4       1 1 eltwise2_4_4 prelu2_4_4
+Split            splitncnn_11     1 2 prelu2_4_4 prelu2_4_4_splitncnn_0 prelu2_4_4_splitncnn_1
+Convolution      conv2_5_0        1 1 prelu2_4_4_splitncnn_1 conv2_5_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu2_5_0       1 1 conv2_5_0 prelu2_5_0
+Convolution      conv2_5_1        1 1 prelu2_5_0 conv2_5_1 0=32 1=3 2=1 3=1 4=1 5=1 6=9216
+ReLU             prelu2_5_1       1 1 conv2_5_1 prelu2_5_1
+Convolution      conv2_5_2        1 1 prelu2_5_1 conv2_5_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_5_4     2 1 prelu2_4_4_splitncnn_0 conv2_5_2 eltwise2_5_4 0=1 -23301=0
+ReLU             prelu2_5_4       1 1 eltwise2_5_4 prelu2_5_4
+Split            splitncnn_12     1 2 prelu2_5_4 prelu2_5_4_splitncnn_0 prelu2_5_4_splitncnn_1
+Convolution      conv2_6_0        1 1 prelu2_5_4_splitncnn_1 conv2_6_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu2_6_0       1 1 conv2_6_0 prelu2_6_0
+Convolution      conv2_6_1        1 1 prelu2_6_0 conv2_6_1 0=32 1=3 2=8 3=1 4=8 5=1 6=9216
+ReLU             prelu2_6_1       1 1 conv2_6_1 prelu2_6_1
+Convolution      conv2_6_2        1 1 prelu2_6_1 conv2_6_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_6_4     2 1 prelu2_5_4_splitncnn_0 conv2_6_2 eltwise2_6_4 0=1 -23301=0
+ReLU             prelu2_6_4       1 1 eltwise2_6_4 prelu2_6_4
+Split            splitncnn_13     1 2 prelu2_6_4 prelu2_6_4_splitncnn_0 prelu2_6_4_splitncnn_1
+Convolution      conv2_7_0        1 1 prelu2_6_4_splitncnn_1 conv2_7_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu2_7_0       1 1 conv2_7_0 prelu2_7_0
+Convolution      conv2_7_1_a      1 1 prelu2_7_0 conv2_7_1_a 0=32 1=1 11=5 2=1 3=1 4=1 5=1 6=5120
+Convolution      conv2_7_1        1 1 conv2_7_1_a conv2_7_1 0=32 1=5 11=1 2=1 3=1 4=1 5=1 6=5120
+ReLU             prelu2_7_1       1 1 conv2_7_1 prelu2_7_1
+Convolution      conv2_7_2        1 1 prelu2_7_1 conv2_7_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_7_4     2 1 prelu2_6_4_splitncnn_0 conv2_7_2 eltwise2_7_4 0=1 -23301=0
+ReLU             prelu2_7_4       1 1 eltwise2_7_4 prelu2_7_4
+Split            splitncnn_14     1 2 prelu2_7_4 prelu2_7_4_splitncnn_0 prelu2_7_4_splitncnn_1
+Convolution      conv2_8_0        1 1 prelu2_7_4_splitncnn_1 conv2_8_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu2_8_0       1 1 conv2_8_0 prelu2_8_0
+Convolution      conv2_8_1        1 1 prelu2_8_0 conv2_8_1 0=32 1=3 2=16 3=1 4=16 5=1 6=9216
+ReLU             prelu2_8_1       1 1 conv2_8_1 prelu2_8_1
+Convolution      conv2_8_2        1 1 prelu2_8_1 conv2_8_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise2_8_4     2 1 prelu2_7_4_splitncnn_0 conv2_8_2 eltwise2_8_4 0=1 -23301=0
+ReLU             prelu2_8_4       1 1 eltwise2_8_4 prelu2_8_4
+Split            splitncnn_15     1 2 prelu2_8_4 prelu2_8_4_splitncnn_0 prelu2_8_4_splitncnn_1
+Convolution      conv3_1_0        1 1 prelu2_8_4_splitncnn_1 conv3_1_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu3_1_0       1 1 conv3_1_0 prelu3_1_0
+Convolution      conv3_1_1        1 1 prelu3_1_0 conv3_1_1 0=32 1=3 2=1 3=1 4=1 5=1 6=9216
+ReLU             prelu3_1_1       1 1 conv3_1_1 prelu3_1_1
+Convolution      conv3_1_2        1 1 prelu3_1_1 conv3_1_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise3_1_4     2 1 prelu2_8_4_splitncnn_0 conv3_1_2 eltwise3_1_4 0=1 -23301=0
+ReLU             prelu3_1_4       1 1 eltwise3_1_4 prelu3_1_4
+Split            splitncnn_16     1 2 prelu3_1_4 prelu3_1_4_splitncnn_0 prelu3_1_4_splitncnn_1
+Convolution      conv3_2_0        1 1 prelu3_1_4_splitncnn_1 conv3_2_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu3_2_0       1 1 conv3_2_0 prelu3_2_0
+Convolution      conv3_2_1        1 1 prelu3_2_0 conv3_2_1 0=32 1=3 2=2 3=1 4=2 5=1 6=9216
+ReLU             prelu3_2_1       1 1 conv3_2_1 prelu3_2_1
+Convolution      conv3_2_2        1 1 prelu3_2_1 conv3_2_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise3_2_4     2 1 prelu3_1_4_splitncnn_0 conv3_2_2 eltwise3_2_4 0=1 -23301=0
+ReLU             prelu3_2_4       1 1 eltwise3_2_4 prelu3_2_4
+Split            splitncnn_17     1 2 prelu3_2_4 prelu3_2_4_splitncnn_0 prelu3_2_4_splitncnn_1
+Convolution      conv3_3_0        1 1 prelu3_2_4_splitncnn_1 conv3_3_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu3_3_0       1 1 conv3_3_0 prelu3_3_0
+Convolution      conv3_3_1_a      1 1 prelu3_3_0 conv3_3_1_a 0=32 1=1 11=5 2=1 3=1 4=1 5=1 6=5120
+Convolution      conv3_3_1        1 1 conv3_3_1_a conv3_3_1 0=32 1=5 11=1 2=1 3=1 4=1 5=1 6=5120
+ReLU             prelu3_3_1       1 1 conv3_3_1 prelu3_3_1
+Convolution      conv3_3_2        1 1 prelu3_3_1 conv3_3_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise3_3_4     2 1 prelu3_2_4_splitncnn_0 conv3_3_2 eltwise3_3_4 0=1 -23301=0
+ReLU             prelu3_3_4       1 1 eltwise3_3_4 prelu3_3_4
+Split            splitncnn_18     1 2 prelu3_3_4 prelu3_3_4_splitncnn_0 prelu3_3_4_splitncnn_1
+Convolution      conv3_4_0        1 1 prelu3_3_4_splitncnn_1 conv3_4_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu3_4_0       1 1 conv3_4_0 prelu3_4_0
+Convolution      conv3_4_1        1 1 prelu3_4_0 conv3_4_1 0=32 1=3 2=4 3=1 4=4 5=1 6=9216
+ReLU             prelu3_4_1       1 1 conv3_4_1 prelu3_4_1
+Convolution      conv3_4_2        1 1 prelu3_4_1 conv3_4_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise3_4_4     2 1 prelu3_3_4_splitncnn_0 conv3_4_2 eltwise3_4_4 0=1 -23301=0
+ReLU             prelu3_4_4       1 1 eltwise3_4_4 prelu3_4_4
+Split            splitncnn_19     1 2 prelu3_4_4 prelu3_4_4_splitncnn_0 prelu3_4_4_splitncnn_1
+Convolution      conv3_5_0        1 1 prelu3_4_4_splitncnn_1 conv3_5_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu3_5_0       1 1 conv3_5_0 prelu3_5_0
+Convolution      conv3_5_1        1 1 prelu3_5_0 conv3_5_1 0=32 1=3 2=1 3=1 4=1 5=1 6=9216
+ReLU             prelu3_5_1       1 1 conv3_5_1 prelu3_5_1
+Convolution      conv3_5_2        1 1 prelu3_5_1 conv3_5_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise3_5_4     2 1 prelu3_4_4_splitncnn_0 conv3_5_2 eltwise3_5_4 0=1 -23301=0
+ReLU             prelu3_5_4       1 1 eltwise3_5_4 prelu3_5_4
+Split            splitncnn_20     1 2 prelu3_5_4 prelu3_5_4_splitncnn_0 prelu3_5_4_splitncnn_1
+Convolution      conv3_6_0        1 1 prelu3_5_4_splitncnn_1 conv3_6_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu3_6_0       1 1 conv3_6_0 prelu3_6_0
+Convolution      conv3_6_1        1 1 prelu3_6_0 conv3_6_1 0=32 1=3 2=8 3=1 4=8 5=1 6=9216
+ReLU             prelu3_6_1       1 1 conv3_6_1 prelu3_6_1
+Convolution      conv3_6_2        1 1 prelu3_6_1 conv3_6_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise3_6_4     2 1 prelu3_5_4_splitncnn_0 conv3_6_2 eltwise3_6_4 0=1 -23301=0
+ReLU             prelu3_6_4       1 1 eltwise3_6_4 prelu3_6_4
+Split            splitncnn_21     1 2 prelu3_6_4 prelu3_6_4_splitncnn_0 prelu3_6_4_splitncnn_1
+Convolution      conv3_7_0        1 1 prelu3_6_4_splitncnn_1 conv3_7_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu3_7_0       1 1 conv3_7_0 prelu3_7_0
+Convolution      conv3_7_1_a      1 1 prelu3_7_0 conv3_7_1_a 0=32 1=1 11=5 2=1 3=1 4=1 5=1 6=5120
+Convolution      conv3_7_1        1 1 conv3_7_1_a conv3_7_1 0=32 1=5 11=1 2=1 3=1 4=1 5=1 6=5120
+ReLU             prelu3_7_1       1 1 conv3_7_1 prelu3_7_1
+Convolution      conv3_7_2        1 1 prelu3_7_1 conv3_7_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise3_7_4     2 1 prelu3_6_4_splitncnn_0 conv3_7_2 eltwise3_7_4 0=1 -23301=0
+ReLU             prelu3_7_4       1 1 eltwise3_7_4 prelu3_7_4
+Split            splitncnn_22     1 2 prelu3_7_4 prelu3_7_4_splitncnn_0 prelu3_7_4_splitncnn_1
+Convolution      conv3_8_0        1 1 prelu3_7_4_splitncnn_1 conv3_8_0 0=32 1=1 2=1 3=1 4=0 5=1 6=2048
+ReLU             prelu3_8_0       1 1 conv3_8_0 prelu3_8_0
+Convolution      conv3_8_1        1 1 prelu3_8_0 conv3_8_1 0=32 1=3 2=16 3=1 4=16 5=1 6=9216
+ReLU             prelu3_8_1       1 1 conv3_8_1 prelu3_8_1
+Convolution      conv3_8_2        1 1 prelu3_8_1 conv3_8_2 0=64 1=1 2=1 3=1 4=0 5=1 6=2048
+Eltwise          eltwise3_8_4     2 1 prelu3_7_4_splitncnn_0 conv3_8_2 eltwise3_8_4 0=1 -23301=0
+ReLU             prelu3_8_4       1 1 eltwise3_8_4 prelu3_8_4
+Split            splitncnn_23     1 2 prelu3_8_4 prelu3_8_4_splitncnn_0 prelu3_8_4_splitncnn_1
+Convolution      conv4_0_0        1 1 prelu3_8_4_splitncnn_1 conv4_0_0 0=16 1=1 2=1 3=1 4=0 5=1 6=1024
+ReLU             prelu4_0_0       1 1 conv4_0_0 prelu4_0_0
+Deconvolution    deconv4_0_1      1 1 prelu4_0_0 deconv4_0_1 0=16 1=2 2=1 3=2 4=0 5=1 6=1024
+BatchNorm        bn4_0_1          1 1 deconv4_0_1 bn4_0_1 0=16
+ReLU             prelu4_0_1       1 1 bn4_0_1 prelu4_0_1
+Convolution      conv4_0_2        1 1 prelu4_0_1 conv4_0_2 0=64 1=1 2=1 3=1 4=0 5=1 6=1024
+Convolution      conv4_0_4        1 1 prelu3_8_4_splitncnn_0 conv4_0_4 0=64 1=1 2=1 3=1 4=0 5=1 6=4096
+Deconvolution    deconv4_0_5      1 1 conv4_0_4 deconv4_0_5 0=64 1=2 2=1 3=2 4=0 5=1 6=16384
+Eltwise          eltwise4_0_4     2 1 deconv4_0_5 conv4_0_2 eltwise4_0_4 0=1 -23301=0
+ReLU             prelu4_0_4       1 1 eltwise4_0_4 prelu4_0_4
+Split            splitncnn_24     1 2 prelu4_0_4 prelu4_0_4_splitncnn_0 prelu4_0_4_splitncnn_1
+Convolution      conv4_1_0        1 1 prelu4_0_4_splitncnn_1 conv4_1_0 0=16 1=1 2=1 3=1 4=0 5=1 6=1024
+ReLU             prelu4_1_0       1 1 conv4_1_0 prelu4_1_0
+Convolution      conv4_1_1        1 1 prelu4_1_0 conv4_1_1 0=16 1=3 2=1 3=1 4=1 5=1 6=2304
+ReLU             prelu4_1_1       1 1 conv4_1_1 prelu4_1_1
+Convolution      conv4_1_2        1 1 prelu4_1_1 conv4_1_2 0=64 1=1 2=1 3=1 4=0 5=1 6=1024
+Eltwise          eltwise4_1_4     2 1 prelu4_0_4_splitncnn_0 conv4_1_2 eltwise4_1_4 0=1 -23301=0
+ReLU             prelu4_1_4       1 1 eltwise4_1_4 prelu4_1_4
+Split            splitncnn_25     1 2 prelu4_1_4 prelu4_1_4_splitncnn_0 prelu4_1_4_splitncnn_1
+Convolution      conv4_2_0        1 1 prelu4_1_4_splitncnn_1 conv4_2_0 0=16 1=1 2=1 3=1 4=0 5=1 6=1024
+ReLU             prelu4_2_0       1 1 conv4_2_0 prelu4_2_0
+Convolution      conv4_2_1        1 1 prelu4_2_0 conv4_2_1 0=16 1=3 2=1 3=1 4=1 5=1 6=2304
+ReLU             prelu4_2_1       1 1 conv4_2_1 prelu4_2_1
+Convolution      conv4_2_2        1 1 prelu4_2_1 conv4_2_2 0=64 1=1 2=1 3=1 4=0 5=1 6=1024
+Eltwise          eltwise4_2_4     2 1 prelu4_1_4_splitncnn_0 conv4_2_2 eltwise4_2_4 0=1 -23301=0
+ReLU             prelu4_2_4       1 1 eltwise4_2_4 prelu4_2_4
+Split            splitncnn_26     1 2 prelu4_2_4 prelu4_2_4_splitncnn_0 prelu4_2_4_splitncnn_1
+Convolution      conv5_0_0        1 1 prelu4_2_4_splitncnn_1 conv5_0_0 0=4 1=1 2=1 3=1 4=0 5=1 6=256
+ReLU             prelu5_0_0       1 1 conv5_0_0 prelu5_0_0
+Deconvolution    deconv5_0_1      1 1 prelu5_0_0 deconv5_0_1 0=4 1=2 2=1 3=2 4=0 5=1 6=64
+BatchNorm        bn5_0_1          1 1 deconv5_0_1 bn5_0_1 0=4
+ReLU             prelu5_0_1       1 1 bn5_0_1 prelu5_0_1
+Convolution      conv5_0_2        1 1 prelu5_0_1 conv5_0_2 0=16 1=1 2=1 3=1 4=0 5=1 6=64
+Convolution      conv5_0_4        1 1 prelu4_2_4_splitncnn_0 conv5_0_4 0=16 1=1 2=1 3=1 4=0 5=1 6=1024
+Deconvolution    deconv5_0_5      1 1 conv5_0_4 deconv5_0_5 0=16 1=2 2=1 3=2 4=0 5=1 6=1024
+Eltwise          eltwise5_0_4     2 1 deconv5_0_5 conv5_0_2 eltwise5_0_4 0=1 -23301=0
+ReLU             prelu5_0_4       1 1 eltwise5_0_4 prelu5_0_4
+Split            splitncnn_27     1 2 prelu5_0_4 prelu5_0_4_splitncnn_0 prelu5_0_4_splitncnn_1
+Convolution      conv5_1_0        1 1 prelu5_0_4_splitncnn_1 conv5_1_0 0=4 1=1 2=1 3=1 4=0 5=1 6=64
+ReLU             prelu5_1_0       1 1 conv5_1_0 prelu5_1_0
+Convolution      conv5_1_1        1 1 prelu5_1_0 conv5_1_1 0=4 1=3 2=1 3=1 4=1 5=1 6=144
+ReLU             prelu5_1_1       1 1 conv5_1_1 prelu5_1_1
+Convolution      conv5_1_2        1 1 prelu5_1_1 conv5_1_2 0=16 1=1 2=1 3=1 4=0 5=1 6=64
+Eltwise          eltwise5_1_4     2 1 prelu5_0_4_splitncnn_0 conv5_1_2 eltwise5_1_4 0=1 -23301=0
+ReLU             prelu5_1_4       1 1 eltwise5_1_4 prelu5_1_4
+Deconvolution    deconv6_0_01     1 1 prelu5_1_4 deconv6_0_01 0=4 1=2 2=1 3=2 4=0 5=1 6=256
